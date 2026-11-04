@@ -7,11 +7,14 @@ class db{
 
     public $conn;
 
-    private function conectar(){
+    public function conectar(){
         $this->conn = new mysqli($this->local, $this->user, $this->pass, $this->database);
         if ($this->conn->connect_error) {
             die("Erro com a conexão: " . $this->conn->connect_error);
         }
+
+
+        return $this->conn;
     }
 }
 ?>

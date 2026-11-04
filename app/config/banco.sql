@@ -3,8 +3,8 @@ use todoLogin;
 create table usuario(
 id int primary key auto_increment,
 nome varchar(45) not null,
-email varchar(100) not null,
-senha varchar(45) not null
+email varchar(100) not null unique,
+senha varchar(255) not null
 );
 
 create table tarefas(
