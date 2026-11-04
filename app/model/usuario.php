@@ -1,11 +1,14 @@
 <?php
 require_once __DIR__ . "/../config/db.php";
  class Usuario {
+
     private $conn;
+
     public function __construct() {
         $db = new db();
         $this->conn = $db->conectar();
     }
+
 
     public function login($email){
         $sql = "SELECT * FROM usuario WHERE email=?";
@@ -16,6 +19,12 @@ require_once __DIR__ . "/../config/db.php";
         return $resultado->fetch_assoc();
     }
 
-    //ainda falta o criar...
+    public function criar($nome, $email, $senha) {
+        $sql = "INSERT INTO usuario (nome, email, senha) VALUES (?, ?, ?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("sss", $nome, $email, $senha);
+        $stmt->execute();
+        return true;
+    }
  }
 ?>

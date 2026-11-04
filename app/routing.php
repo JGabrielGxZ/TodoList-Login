@@ -6,7 +6,7 @@
 
     switch ($action) {
         case 'criar':
-            # code...
+            $usuarioController->criar($_POST['nome'], $_POST['email'], $_POST['senha']);
             break;
         case 'login':
             $usuarioController->login($_POST['email'], $_POST['senha']);

@@ -14,7 +14,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Bem vindo ao menu de tarfas, <?php echo $_SESSION['usuario_nome']; session_unset(); session_destroy();?></h1>
+    <h1>Bem vindo ao menu de tarfas, <?php echo $_SESSION['usuario_nome'];?></h1>
 
 </body>
 </html>
