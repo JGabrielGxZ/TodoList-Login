@@ -8,8 +8,19 @@
             $this->tarefaModel = new Tarefa();
         } 
 
-        public function criar() { 
-            $this->tarefaModel->criar();
+        public function criar($desc) { 
+            $tarefas = $this->tarefaModel->criar($desc, $_SESSION['usuario_id']);
+            if ($tarefas !== false) {
+                header("Location: /TodoList-Login/app/view/tarefa.php");
+                exit;
+            }
+        }
+
+        public function listar() {
+            $tarefas = $this->tarefaModel->listar($_SESSION['usuario_id']);
+            if (isset($tarefas)) {
+                include __DIR__ . "/../view/tarefa.php";
+            }
         }
     }
 

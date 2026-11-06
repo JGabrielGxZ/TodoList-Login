@@ -7,7 +7,9 @@
 
 
     //tarefas:
+    require_once __DIR__ . "/controller/tarefasController.php";
     $tarefas = $_GET['tarefas'] ?? 'listar';
+    $tarefasController = new TarefasController();
 
 
     switch ($action) {
@@ -27,13 +29,14 @@
 
     switch ($tarefas) {
         case 'criar':
-            $tarefas->criar();
+            $tarefasController->criar($_POST['desc']);
             break;
         case 'listar':
-            
+            die("parou aqui!");
+            $tarefasController->listar();
             break;
         default:
-            # code...
+            
             break;
     }
 ?>
