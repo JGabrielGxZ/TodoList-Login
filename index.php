@@ -1,5 +1,3 @@
-<!-- index usado para redirecionar, não como página principal -->
-
 <?php 
     session_start();
 

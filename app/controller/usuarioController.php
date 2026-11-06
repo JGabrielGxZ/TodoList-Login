@@ -37,10 +37,20 @@
             $senha = trim($s);
 
             if (!empty($nome) && !empty($email) && !empty($senha)) {
-                $usuario = $usuarioModel->criar($nome, $email, $senha);
+                $usuario = $this->usuarioModel->criar($nome, $email, $senha);
                 if ($usuario !== false) {
-                    //deu certo
+                    header('Location: /TodoList-Login/app/view/login.php');
+                    exit;
                 }
+            }
+        }
+
+        public function sair() {
+            if (isset($_SESSION['usuario_id'])) {
+                session_unset(); //limpa sessão
+                session_destroy(); //destroi sessão
+                header("Location: /TodoList-Login/app/view/login.php");
+                exit;
             }
         }
 

@@ -22,7 +22,8 @@ require_once __DIR__ . "/../config/db.php";
     public function criar($nome, $email, $senha) {
         $sql = "INSERT INTO usuario (nome, email, senha) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("sss", $nome, $email, $senha);
+        $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
+        $stmt->bind_param("sss", $nome, $email, $senhaCriptografada);
         $stmt->execute();
         return true;
     }
