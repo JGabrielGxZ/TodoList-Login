@@ -22,7 +22,8 @@
                     $_SESSION['usuario_id'] = $usuario['id'];
                     $_SESSION['usuario_nome'] = $usuario['nome'];
                     
-                    header('Location: /TodoList-Login/app/view/tarefa.php');
+                    //header('Location: /TodoList-Login/app/view/tarefa.php');
+                    header("Location: /TodoList-Login/app/routing.php?tarefas=listar");
                     exit;
                 }
             } else {

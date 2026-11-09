@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     require_once __DIR__ . '/../model/tarefa.php';
 
     class TarefasController {
@@ -11,16 +12,15 @@
         public function criar($desc) { 
             $tarefas = $this->tarefaModel->criar($desc, $_SESSION['usuario_id']);
             if ($tarefas !== false) {
-                header("Location: /TodoList-Login/app/view/tarefa.php");
+                //header("Location: /TodoList-Login/app/view/tarefa.php");
+                header("Location: /TodoList-Login/app/routing.php?tarefas=listar");
                 exit;
             }
         }
 
         public function listar() {
             $tarefas = $this->tarefaModel->listar($_SESSION['usuario_id']);
-            if (isset($tarefas)) {
-                include __DIR__ . "/../view/tarefa.php";
-            }
+            include __DIR__ . "/../view/tarefa.php";
         }
     }
 

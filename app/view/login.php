@@ -15,6 +15,7 @@
             <label for="senha">Senha:</label>
             <input type="password" name="senha" id="senha" placeholder="Neste campo Digite sua Senha"><i class="bi bi-eye" id="iconeEye" onclick="verSenha()"></i>           
             <br>
+
             <script>
                 let senha = document.getElementById("senha");
                 let butao = document.getElementById("iconeEye")
@@ -30,6 +31,7 @@
                     }
                 }
             </script>
+            
             <center>
                 <button type="submit">Enviar</button>
             </center>

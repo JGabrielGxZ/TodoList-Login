@@ -1,8 +1,7 @@
 <?php 
-    session_start();
-
     if (!isset($_SESSION['usuario_id'])) {
-        header('Location: Location: /TodoList-Login/app/view/login.php');
+        header('Location: /TodoList-Login/app/view/login.php');
+        exit;
     }
 ?>
 
@@ -26,11 +25,11 @@
 
     <h2>Suas Tarefas!</h2>
     <hr>
-    <?php if (isset($tarefas)) : ?>
+    <?php if (!empty($tarefas)) : ?>
         <ul>
             <?php foreach($tarefas as $tarefa) : ?>
                 <li>
-                    
+                    <?php echo $tarefa["descricao"];?>
                 </li>
             <?php endforeach?>
         </ul>

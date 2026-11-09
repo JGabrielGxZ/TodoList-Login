@@ -1,5 +1,4 @@
 <?php
-    session_start();
     //usuarios:
     require_once __DIR__ . "/controller/usuarioController.php";
     $action = $_GET['action'] ?? '';
@@ -32,7 +31,6 @@
             $tarefasController->criar($_POST['desc']);
             break;
         case 'listar':
-            die("parou aqui!");
             $tarefasController->listar();
             break;
         default:

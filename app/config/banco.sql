@@ -21,3 +21,6 @@ references usuario(id)
 on delete cascade
 on update cascade
 );
+
+SELECT * FROM usuario;
+
