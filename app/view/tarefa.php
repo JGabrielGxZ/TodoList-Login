@@ -30,6 +30,8 @@
             <?php foreach($tarefas as $tarefa) : ?>
                 <li>
                     <?php echo $tarefa["descricao"];?>
+                    <a href="/TodoList-Login/app/routing.php?tarefas=excluir&id=<?php echo $tarefa['id']?>">Excluir</a>
+                    <a href="">editar</a>
                 </li>
             <?php endforeach?>
         </ul>

@@ -33,6 +33,9 @@
         case 'listar':
             $tarefasController->listar();
             break;
+        case 'excluir':
+            $tarefasController->excluirTarefa();
+            break;
         default:
             
             break;

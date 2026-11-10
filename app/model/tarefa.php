@@ -13,8 +13,12 @@
             $sql = "INSERT INTO tarefas (descricao, usuario_id) VALUES (?, ?)";
             $stmt = $this->conn->prepare($sql);
             $stmt->bind_param("si", $desc, $usuarioId);
-            $stmt->execute();
-            return true;
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+            
         }
 
         public function listar($usuarioId) {
@@ -24,6 +28,17 @@
             $stmt->execute();
             $resultado = $stmt->get_result();
             return $resultado->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function excluir($userId, $tarefaId) {
+            $sql = "DELETE FROM tarefas WHERE usuario_id = ? AND id = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("ii", $userId, $tarefaId);
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 

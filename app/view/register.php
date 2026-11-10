@@ -20,6 +20,7 @@
             <center>
                 <button type="submit">Enviar</button>
             </center>
+            <h4>Já tem uma conta? <a href="/TodoList-Login/app/view/login.php">Clique Aqui!</a></h4>
         </form>
     </center>
 </body>

@@ -35,6 +35,8 @@
             <center>
                 <button type="submit">Enviar</button>
             </center>
+
+            <h4>Ainda não tem uma conta? <a href="/TodoList-Login/app/view/register.php">Clique Aqui!</a></h4>
         </form>
     </center>
 </body>
