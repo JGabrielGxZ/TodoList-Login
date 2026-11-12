@@ -22,7 +22,7 @@
             include __DIR__ . "/../view/tarefa.php";
         }
 
-        public function excluir() {
+        public function excluirTarefa() {
             if (isset($_GET['id'])) {
                 $tarefas= $this->tarefaModel->excluir($_SESSION['usuario_id'], $_GET['id']);
                 if ($tarefas !== false) {

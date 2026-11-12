@@ -36,6 +36,9 @@
         case 'excluir':
             $tarefasController->excluirTarefa();
             break;
+        case 'editar':
+            //$tarefasController->editarTarefa();
+            break;
         default:
             
             break;

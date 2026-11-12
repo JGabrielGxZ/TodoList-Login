@@ -31,12 +31,34 @@
                 <li>
                     <?php echo $tarefa["descricao"];?>
                     <a href="/TodoList-Login/app/routing.php?tarefas=excluir&id=<?php echo $tarefa['id']?>">Excluir</a>
-                    <a href="">editar</a>
+                    <button onclick="painelEditar(<?php echo $tarefa['id']?>, '<?php echo $tarefa['descricao']?>')">Editar</button>
                 </li>
             <?php endforeach?>
         </ul>
     <?php else :?>
     <h3>Você ainda não tem tarefas!</h3>
     <?php endif?>
+
+    <div id="painelEditar" style="display: none;">
+        <form action="/TodoList-Login/app/routing.php?tarefas=editar" method="post">
+            <input type="hidden" name="id" id="valorId">
+            <label for="descPainel">Descrição: </label>
+            <input type="text" name="desc" id="descPainel">
+            <button type="submit">Editar</button>
+        </form>
+        <button onclick="fechar()">Cancelar</button>
+    </div>
+
+    <script>
+        function painelEditar(id, descricao) {
+            document.getElementById("painelEditar").style.display = "block";
+            document.getElementById("valorId").value = id;
+            document.getElementById("descPainel").value = descricao;
+        }
+        
+        function fechar() {
+            document.getElementById("painelEditar").style.display = "none";
+        }
+    </script>
 </body>
 </html>
